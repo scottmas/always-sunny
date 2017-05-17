@@ -1,0 +1,23 @@
+{
+  "name": "always-sunny",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "now",
+    "test": "mocha"
+  },
+  "author": "scottmortonashton@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.1",
+    "now": "*"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-ws": "^3.0.0",
+    "node-cache": "^4.1.1"
+  }
+}
