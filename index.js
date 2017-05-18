@@ -6,7 +6,7 @@ require('express-ws')(app);
 
 var client = redis.createClient({host: 'redis'});
 
-var port = process.argv[2] || 8080;
+var port = process.argv[2] || 3000;
 var MAX_RECENT = 10;
 
 var recent = [];
