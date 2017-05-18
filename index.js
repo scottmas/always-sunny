@@ -1,7 +1,10 @@
+var redis = require('redis');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 require('express-ws')(app);
+
+var client = redis.createClient({host: 'redis'});
 
 var port = process.argv[2] || 8080;
 var MAX_RECENT = 10;
@@ -60,6 +63,10 @@ app.ws('/', function(ws){
 // All other HTTP requests
 app.use(bodyParser.raw({limit: '100mb', type: () => true}));
 app.use(function (req, res) {
+
+  client.incr('blah', function(err){
+    console.log('INCREMENTED');
+  });
 
   if(req.header('always-sunny-get-last-hit')){
     return res.json(urlCache.get(req.originalUrl) || {});

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    depends_on:
+      - redis
+    ports:
+      - "8080:8080"
+  redis:
+    image: "redis:alpine"
+    volumes:
+      - redis_data:/data
+    command: redis-server
+    ports:
+      - "6379:6379"
+volumes:
+  redis_data:
